@@ -1,0 +1,240 @@
+@font-face{
+  font-family: 'Magmatic VF';
+  font-style: normal;
+  src: url(Magmatic-VF.woff2);
+}
+
+:root{
+  --occWhite: #fffdf5;
+  --occBlack: #001c24;
+  --occTeal: rgb(0,144,158);
+  --occRed: #ff3b00;
+  --occYellow: #ffdd00;
+  --occDarkGrey: #9e9e9e;
+  --occGrey: #deddd7;
+  --occLightTeal: #00c4c5;
+
+  --pad: 10px;
+  --pad-content: 40px;
+  --size-xsmall: 0.6rem;
+  --size-small: 1rem;
+  --size-base: 2rem;
+  --size-medium: 3rem;
+  --size-large: 5rem;
+  --size-xlarge: 7rem;
+
+  --wdth: 75;
+  --wght: 500;
+}
+
+*{
+  font-variation-settings: 'wdth' var(--wdth), 'wght' var(--wght);
+}
+html{
+  font-size: 24px;
+}
+body{
+  font-size: var(--size-base);
+  font-family: 'Magmatic VF';
+  font-variation-settings: 'wdth' var(--wdth), 'wght' var(--wght);
+  background: var(--occYellow);
+  color: var(--occBlack);
+  line-height: 1.0;
+}
+
+
+h1,h2,h3,h4{
+  font-weight: normal;
+  margin: 0 auto;
+}
+h1, h2{
+  font-size: var(--size-large);
+}
+
+h3, h4{
+  font-size: var(--size-medium);
+}
+p, li{
+  --wght: 400;
+  margin: 0 auto;
+  font-size: var(--size-base);
+  max-width: 30em;
+  letter-spacing: 0.01em;
+}
+a{
+  color: var(--occRed);
+  text-decoration: none;
+}
+
+ul{
+  max-width: 30em;
+  text-align: left;
+  padding-left: 0;
+  &+h4{
+    margin-top: var(--pad-section);
+  }
+  margin-bottom: var(--pad);
+
+  li{
+    list-style-type: none;
+  }
+}
+figure{
+  width: 100%;  
+  code{
+    font-size: 2rem;
+  }
+  margin: var(--pad) 0;
+}
+.image{
+  height: 90vh;
+}
+img, video{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+video{
+  max-height: 90vh;
+  margin: auto;
+}
+figcaption{
+  text-align: center;
+  margin-top: var(--pad);
+  font-size: var(--size-small);
+  letter-spacing: 0.02em;
+  --wght: 400;
+  --wdth: 100;
+}
+iframe{
+  width: 100%;
+  height: 85vh;
+}
+.source{
+  font-size: var(--size-xsmall);
+  padding-left: 1em;
+  border: none;
+  text-decoration: underline;
+}
+.text-column{
+  text-align: left;
+}
+
+footer{
+  font-size: var(--size-small);
+  position: absolute;
+  bottom: 0;
+  text-align: left;
+  padding: var(--pad);
+  left: 0;
+  div{
+    grid-column: span 4
+  }
+}
+
+//SLIDE STYLES
+.layout-slides {
+  header, footer, section{
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    // override main css styles
+  }
+}
+
+
+table{
+  margin: auto;
+  margin-top: var(--pad);
+  margin-bottom: var(--pad);
+  font-size: calc(var(--size-base)*0.7);
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  th{
+    --wght: 500;
+    border-bottom: 2px solid;
+  }
+  td{
+    min-width: 8em;
+    vertical-align: top;
+  }
+  th,td{
+    padding: 0.25em .5em;
+    &:first-child{
+    	padding-left: 0;
+    }
+    &:last-child{
+    	padding-right: 0;
+    }
+  }
+}
+.slide{
+  position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+  padding: var(--pad);
+  text-align: center;
+  .content{
+   margin: auto;
+   padding: 0;
+  }
+}
+
+// slides with image padding
+.pad{ 
+  padding: var(--pad);
+	background: white;
+}
+
+.text{
+ margin: auto;
+ width: 90%;
+}
+
+figure.small img{
+	height: 70vh;
+}
+// figure.wide{
+// 	width: 80%;
+// }
+  
+.cols{
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col2{
+  grid-column: span 6;
+  height: 90vh;
+}
+
+
+
+
+
+@media (max-width: 1200px){
+  .layout-slides{
+    --size-base: 1.4rem;
+  }
+  .text{
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 500px){
+  .text{
+    width: 100%;
+  }
+  .grid{
+    display: block;
+  }
+}
